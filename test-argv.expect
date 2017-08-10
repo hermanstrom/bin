@@ -1,0 +1,7 @@
+#!/usr/bin/expect
+#
+if { $argc < 2 } { puts "Usage: $argv0 router peer ..." ; exit 1 ; }
+
+foreach element [lrange $argv 0 end] { puts "$element" }
+
+exit 0
