@@ -4,9 +4,9 @@
 #
 require 'unix_crypt' # gem install unix-crypt
 
-cf = {:secret => $stdin.gets.chomp, :counter => 0, :password => nil}
+cf = {:enc => $stdin.gets.chomp, :i => 0, :pw => nil}
 
-cf[:counter] += 1 until (cf[:password] = UnixCrypt::SHA512.build(cf[:secret])) !~ /[.\/]/
-$stdout.puts "#{cf};\n"
+cf[:i] += 1 until (cf[:pw] = UnixCrypt::SHA512.build(cf[:enc])) !~ /[.\/]/
+$stdout.puts ":cf = #{cf};\n"
 
 exit 0
